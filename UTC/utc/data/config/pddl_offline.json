@@ -1,0 +1,62 @@
+{
+  "general": {
+    "name": "pddl_offline",
+    "config_type": "pddl",
+    "version": "0.0.2",
+    "cpu": {
+      "threads": 8,
+      "processes": 4
+    },
+    "logging" : {
+      "level": "DEBUG",
+      "file": "default",
+      "colored": true,
+      "stream": "stdout"
+    }
+  },
+  "routing": {
+    "init": {
+      "scenario": "lust_25200_32400",
+      "config": "lust_25200_32400",
+      "snapshot": null,
+      "new_scenario": "lust_25200_32400_planned_br",
+      "mode": {
+        "type": "offline",
+        "domain": "utc_allowed",
+        "interval": [5, 18],
+      	"reserve": 1,
+        "dynamic_cost": false,
+      	"routed_eta": false,
+        "window": 30
+      }
+    },
+
+    "solver": {
+      "name": "Mercury2",
+      "timeout": 27,
+      "problems": {
+        "keep": true,
+        "zip": true
+      },
+      "results": {
+        "keep": true,
+        "zip": true
+      },
+      "output": {
+        "keep": false,
+        "zip": false
+      }
+    },
+
+    "builder": {
+      "regions": ["lust_red"],
+      "simplify": true,
+      "cache_size": 2000,
+      "topka": {
+        "c": 1.2,
+        "k": 3000
+      },
+      "dbscan": null
+    }
+  }
+}

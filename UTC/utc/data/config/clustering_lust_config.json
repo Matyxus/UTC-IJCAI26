@@ -1,0 +1,34 @@
+{
+  "general": {
+    "name": "clustering_config",
+    "config_type": "grav_clustering",
+    "version": "0.0.2",
+    "cpu": {
+      "threads": 8,
+      "processes": 4
+    },
+    "logging" : {
+      "level": "DEBUG",
+      "file": "default",
+      "colored": true,
+      "stream": "stdout"
+    }
+  },
+
+
+  "data_path": "../../../data/scenarios/Lust/additional/edgedata.out.xml",
+  "network": "lust",
+  "multiplier": 10.0,
+  "start_time": 25200,
+  "end_time": 32400,
+  "iterations": 330,
+  "merging_radius": 8.0,
+
+  "plotting": {
+    "frequency": 5,
+    "heatmap": false,
+    "planets": false,
+    "cluster_size": 200
+  }
+
+}

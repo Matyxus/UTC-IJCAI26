@@ -1,0 +1,62 @@
+{
+  "general": {
+    "name": "mip_online",
+    "config_type": "mip",
+    "version": "0.0.2",
+    "cpu": {
+      "threads": 8,
+      "processes": 4
+    },
+    "logging" : {
+      "level": "DEBUG",
+      "file": "default",
+      "colored": true,
+      "stream": "stdout"
+    }
+  },
+  "routing": {
+    "init": {
+      "scenario": "itsc_25200_32400",
+      "config": "itsc_25200_32400",
+      "snapshot": null,
+      "new_scenario": "itsc_25200_32400_dso_mip_allowed_15_2",
+      "mode": {
+        "type": "online",
+        "domain": "utc_allowed",
+        "interval": [5, 14],
+      	"reserve": 1,
+        "dynamic_cost": true,
+      	"routed_eta": false,
+        "window": 15
+      }
+    },
+
+    "solver": {
+      "name": "mip_allowed",
+      "timeout": 13.5,
+      "problems": {
+        "keep": true,
+        "zip": true
+      },
+      "results": {
+        "keep": true,
+        "zip": true
+      },
+      "output": {
+        "keep": false,
+        "zip": false
+      }
+    },
+
+    "builder": {
+      "regions": ["DCC_central", "DCC_side"],
+      "simplify": true,
+      "cache_size": 2000,
+      "topka": {
+        "c": 1.15,
+        "k": 1500
+      },
+      "dbscan": null
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "general": {
+    "name": "mip_online",
+    "config_type": "mip",
+    "version": "0.0.2",
+    "cpu": {
+      "threads": 8,
+      "processes": 4
+    },
+    "logging" : {
+      "level": "DEBUG",
+      "file": "default",
+      "colored": true,
+      "stream": "stdout"
+    }
+  },
+  "routing": {
+    "init": {
+      "scenario": "intas",
+      "config": "intas",
+      "snapshot": null,
+      "new_scenario": "intas_global_duo",
+      "mode": {
+        "type": "online",
+        "domain": "utc_allowed",
+        "interval": [3, 9],
+      	"reserve": 0,
+        "dynamic_cost": true,
+      	"routed_eta": false,
+        "window": 10
+      }
+    },
+
+    "solver": {
+      "name": "mip_allowed",
+      "timeout": 8.5,
+      "problems": {
+        "keep": true,
+        "zip": true
+      },
+      "results": {
+        "keep": true,
+        "zip": true
+      },
+      "output": {
+        "keep": false,
+        "zip": false
+      }
+    },
+
+    "builder": {
+      "regions": [],
+      "simplify": true,
+      "cache_size": 2000,
+      "topka": {
+        "c": 1.15,
+        "k": 1500
+      },
+      "dbscan": null
+    }
+  }
+}
